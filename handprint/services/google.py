@@ -177,6 +177,13 @@ class GoogleTR(TextRecognition):
                         # Skip it and continue.
                         if __debug__: log(f'bad bb for {text}: {bb}')
         full_text = result['full_text_annotation']['text']
+        from pathlib import Path
+        desktop_path = Path.home() / 'Desktop' 
+        folder_path = desktop_path / 'Feedbackmapper_Google_Results1/'
+        folder_path.mkdir(parents=True, exist_ok=True)
+        datei=os.path.join(folder_path, "bounding_boxes_and_text.json")
+        with open(  datei, 'w' ) as f:
+            json.dump(data, f, indent=4)
         return TRResult(path = path, data = result,
                         boxes = boxes, text = full_text, error = None)
 
