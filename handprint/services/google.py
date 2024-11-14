@@ -177,7 +177,7 @@ class GoogleTR(TextRecognition):
                         # Skip it and continue.
                         if __debug__: log(f'bad bb for {text}: {bb}')
         full_text = result['full_text_annotation']['text']
-         data = {
+        data = {
         "full_text": full_text,
         "boxes": [{
             "kind": box.kind,
