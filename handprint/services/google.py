@@ -177,6 +177,15 @@ class GoogleTR(TextRecognition):
                         # Skip it and continue.
                         if __debug__: log(f'bad bb for {text}: {bb}')
         full_text = result['full_text_annotation']['text']
+         data = {
+        "full_text": full_text,
+        "boxes": [{
+            "kind": box.kind,
+            "bb": box.bb,
+            "text": box.text,
+            "score": box.score
+        } for box in boxes]
+        }
         from pathlib import Path
         desktop_path = Path.home() / 'Desktop' 
         folder_path = desktop_path / 'Feedbackmapper_Google_Results1/'
