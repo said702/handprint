@@ -206,7 +206,7 @@ def converted_image(orig_file, to_format, dest_file = None):
     # PIL is unable to read PDF files, so in that particular case, we have to
     # convert it using another tool.
     if filename_extension(orig_file) == '.pdf':
-        import fitz
+        #import fitz
         doc = fitz.open(orig_file)
         if len(doc) >= 1:
             if len(doc) >= 2:
